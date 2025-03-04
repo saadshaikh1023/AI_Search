@@ -10,7 +10,7 @@ import { searchLinkedin } from './services/linkedinService.js';
 dotenv.config();
 
 const app = express();
-
+const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(express.json());
 app.use(cors({
@@ -70,6 +70,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start the server
-app.listen(() => {
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
   console.log(`API available at http://localhost:${PORT}/api/health`);
 });
